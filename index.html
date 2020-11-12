@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class='calculator'>
+        <div class='display'>8586800</div>
+        <div class='clear'><button id='clear'>CLEAR</button></div>
+        <div class='zero'><button id='zero'>0</button></div>
+        <div class='one'><button id='one'>1</button></div>
+        <div class='two'><button id='two'>2</button></div>
+        <div class='three'><button id='three'>3</button></div>
+        <div class='four'><button id='four'>4</button></div>
+        <div class='five'><button id='five'>5</button></div>
+        <div class='six'><button id='six'>6</button></div>
+        <div class='seven'><button id='seven'>7</button></div>
+        <div class='eight'><button id='eight'>8</button></div>
+        <div class='nine'><button id='nine'>9</button></div>
+        <div class='equal'><button id='equal'>=</button></div>
+
+        
+        <div class='add'><button id='add'>+</button></div>
+        <div class='subtract'><button id='subtract'>-</button></div>
+        <div class='multiply'><button id='multiply'>*</button></div>
+        <div class='divide'><button id='divide'>/</button></div>
+        
+    </div>
+
+<script>
+    //CONTINUE FROM STEP 4
+    function add(a,b){
+        return a+b;
+    }
+    function subtract(a,b){
+        return a-b;
+    }
+    function multiply(a,b){
+        return a*b;
+    }
+    function divide(a,b){
+        return a/b;
+    }
+
+    function operate(operator,a,b){
+        switch(operator){
+            case '+':   return add(a,b);
+                        break;
+            case '-':   return subtract(a,b);
+                        break;
+            case '*':   return multiply(a,b);
+                        break;
+            case '/':   return divide(a,b);
+                        break;
+        }
+    }
+
+
+
+</script>
+</body>
+</html>
