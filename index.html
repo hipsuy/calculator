@@ -5,9 +5,10 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
+    <br><br><br><br>
+    <center>
     <div class='calculator'>
-        <div class='display'>8586800</div>
+        <div class='display'></div>
         <div class='clear'><button id='clear'>CLEAR</button></div>
         <div class='zero'><button id='zero'>0</button></div>
         <div class='one'><button id='one'>1</button></div>
@@ -28,7 +29,7 @@
         <div class='divide'><button id='divide'>/</button></div>
         
     </div>
-
+    </center>
 <script>
     //CONTINUE FROM STEP 4
     function add(a,b){
@@ -56,6 +57,30 @@
                         break;
         }
     }
+    let displayValue = '';
+
+    const calc = document.querySelector('.calculator');
+    const btns = calc.querySelectorAll('button');
+    
+
+    function clickNumber(e){
+        
+        displayValue += this.textContent;
+        const disp = document.querySelector('.display');
+        disp.textContent = displayValue;
+    }
+
+    btns.forEach(btn=>{
+        if( (btn.id !='display') && (btn.id !='clear') &&(btn.id !='equal')&&(btn.id !='add')&&(btn.id !='subtract')&&(btn.id !='multiply')&&(btn.id !='divide') ){
+            btn.addEventListener('click',clickNumber);
+        }
+        
+        
+    });
+
+    
+
+    
 
 
 
