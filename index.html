@@ -3,6 +3,7 @@
 <head>
     <title>Calculator</title>
     <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
     <br><br><br><br>
@@ -31,7 +32,7 @@
     </div>
     </center>
 <script>
-    //CONTINUE FROM STEP 4
+    
     function add(a,b){
         return a+b;
     }
@@ -46,6 +47,8 @@
     }
 
     function operate(operator,a,b){
+        a = parseFloat(a);
+        b = parseFloat(b);
         switch(operator){
             case '+':   return add(a,b);
                         break;
@@ -78,6 +81,69 @@
         
     });
 
+
+    //new code
+    const addBtn = document.querySelector('#add');
+    const subtractBtn = document.querySelector('#subtract');
+    const multiplyBtn = document.querySelector('#multiply');
+    const divideBtn = document.querySelector('#divide');
+    const equalBtn = document.querySelector('#equal');
+    const clearBtn = document.querySelector('#clear');
+
+    let operatorOne;
+    let operatorTwo;
+    let operatorChosen;
+    function clickOperator(e){
+        operatorOne = displayValue;
+        displayValue = '';
+        const disp = document.querySelector('.display');
+        disp.textContent = displayValue;
+        switch(this.id){
+            case 'add': 
+                operatorChosen = '+';
+                break;
+            case 'subtract': 
+                operatorChosen = '-';
+                break;
+            case 'multiply': 
+                operatorChosen = '*';
+                break;
+            case 'divide': 
+                operatorChosen = '/';
+                break;
+                   
+        }
+    }
+    function clickEqual(e){
+        operatorTwo = displayValue;
+        if(operatorTwo=='0' && operatorChosen == '/'){
+            alert('Can\'t divide by zero');
+            displayValue = '';
+        }else{
+            displayValue = operate(operatorChosen,operatorOne,operatorTwo).toFixed(5);
+        }
+        const disp = document.querySelector('.display');
+        disp.textContent = displayValue;
+        operatorChosen = '';  
+    }
+    function clickClear(e){
+        operatorOne = '';
+        operatorChosen = '';
+        operatorTwo = '';
+        displayValue = '';
+        const disp = document.querySelector('.display');
+        disp.textContent = displayValue;
+    }
+
+    addBtn.addEventListener('click',clickOperator);
+    subtractBtn.addEventListener('click',clickOperator);
+    multiplyBtn.addEventListener('click',clickOperator);
+    divideBtn.addEventListener('click',clickOperator);
+    clearBtn.addEventListener('click',clickClear);
+    equalBtn.addEventListener('click',clickEqual);
+
+
+    
     
 
     
